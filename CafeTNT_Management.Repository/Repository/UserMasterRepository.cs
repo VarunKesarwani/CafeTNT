@@ -1,4 +1,5 @@
-﻿using CafeTNT_Management.Repository.DTO;
+﻿using CafeTNT_Management.Repository.DataSource;
+using CafeTNT_Management.Repository.DTO;
 using CafeTNT_Management.Repository.Interface;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace CafeTNT_Management.Repository.Repository
 {
     public class UserMasterRepository : IUserMasterRepository
     {
+        UserMaster DB = new UserMaster();
         private List<UserMasterDTO> users = new List<UserMasterDTO>();
         private int Id = 1;
 
