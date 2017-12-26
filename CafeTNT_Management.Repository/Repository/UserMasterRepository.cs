@@ -11,7 +11,7 @@ namespace CafeTNT_Management.Repository.Repository
 {
     public class UserMasterRepository : IUserMasterRepository
     {
-        UserMaster DB = new UserMaster();
+        CafeTNTEntities DB = new CafeTNTEntities();
         private List<UserMasterDTO> users = new List<UserMasterDTO>();
         private int Id = 1;
 
@@ -48,7 +48,17 @@ namespace CafeTNT_Management.Repository.Repository
 
         public IEnumerable<UserMasterDTO> GetAll()
         {
-            return users;
+            List<UserMasterDTO> userDTO = new List<UserMasterDTO>();
+            var user = DB.UserMasters;
+            foreach (var item in user)
+            {
+                UserMasterDTO userDTOSingle = new UserMasterDTO();
+                userDTOSingle.Author = item.Author;
+                userDTOSingle.Publisher = item.Publisher;
+                userDTOSingle.Isbn = item.Isbn;
+                userDTO.Add(userDTOSingle);
+            }
+            return userDTO;
         }
 
         public bool Update(UserMasterDTO item)

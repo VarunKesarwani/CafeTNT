@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CafeTNTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="CafeTNTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="UserMaster">
           <Key>
             <PropertyRef Name="ID" />
@@ -18,13 +18,11 @@
         <EntityContainer Name="CafeTNTModelStoreContainer">
           <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CafeTNTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="CafeTNTEntities" annotation:LazyLoadingEnabled="true" >
-          <EntitySet Name="UserMasters" EntityType="CafeTNTModel.UserMaster" />
-        </EntityContainer>
         <EntityType Name="UserMaster">
           <Key>
             <PropertyRef Name="ID" />
@@ -35,20 +33,23 @@
           <Property Name="Publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Isbn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityContainer Name="CafeTNTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserMasters" EntityType="Self.UserMaster" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CafeTNTModelStoreContainer" CdmEntityContainer="CafeTNTEntities" >
+        <EntityContainerMapping StorageEntityContainer="CafeTNTModelStoreContainer" CdmEntityContainer="CafeTNTEntities">
           <EntitySetMapping Name="UserMasters">
             <EntityTypeMapping TypeName="CafeTNTModel.UserMaster">
               <MappingFragment StoreEntitySet="UserMaster">
-                <ScalarProperty Name="Isbn" ColumnName="Isbn" />
-                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
-                <ScalarProperty Name="Author" ColumnName="Author" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="Isbn" ColumnName="Isbn" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

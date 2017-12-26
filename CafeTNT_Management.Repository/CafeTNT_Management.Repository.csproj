@@ -50,16 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSource\CafeTNT.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CafeTNT.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataSource\CafeTNT.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CafeTNT.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataSource\CafeTNTModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,7 +66,7 @@
       <DependentUpon>CafeTNTModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="DataSource\UserMaster.cs">
-      <DependentUpon>CafeTNT.tt</DependentUpon>
+      <DependentUpon>CafeTNTModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\UserMasterDTO.cs" />
     <Compile Include="Interface\IUserMasterRepository.cs" />
@@ -84,11 +74,11 @@
     <Compile Include="Repository\UserMasterRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <EntityDeploy Include="DataSource\CafeTNTModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CafeTNTModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="DataSource\CafeTNTModel.edmx.diagram">
       <DependentUpon>CafeTNTModel.edmx</DependentUpon>
     </None>
@@ -96,16 +86,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="DataSource\CafeTNT.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CafeTNT.Context.cs</LastGenOutput>
-      <DependentUpon>CafeTNTModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="DataSource\CafeTNT.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CafeTNT.cs</LastGenOutput>
-      <DependentUpon>CafeTNTModel.edmx</DependentUpon>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DataSource\CafeTNTModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CafeTNTModel.edmx</DependentUpon>
@@ -116,9 +99,6 @@
       <DependentUpon>CafeTNTModel.edmx</DependentUpon>
       <LastGenOutput>CafeTNTModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
